@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  height: 13vh;
+  width: 100%;
+  background-color: #296331;
+}
+header nav {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+header nav .logo a img {
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+header nav .menu ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+header nav .menu ul li a {
+  margin: 0px 5px;
+  border-radius: 5px;
+  font-size: 25px;
+  color: #000;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
