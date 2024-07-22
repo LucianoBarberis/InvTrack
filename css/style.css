@@ -53,7 +53,9 @@ main .titulo h1 {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 50px;
   background-color: #e6e6e6;
-  font-size: 35px;
+  font-size: 30px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
 }
 main .cards {
   height: 72vh;
@@ -83,10 +85,21 @@ main .cards .contenedor .inventario .boxInv {
   background-color: #e6e6e6;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
-  transition: all 0.2s;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .cards .contenedor .inventario .boxInv img {
+  height: 90%;
+  border-radius: 20px;
+}
+main .cards .contenedor .inventario .boxInv img:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 main .cards .contenedor .inventario .boxInv:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 92%;
 }
 main .cards .contenedor .noticias {
   grid-area: news;
@@ -101,10 +114,11 @@ main .cards .contenedor .noticias .boxNews {
   background-color: #e6e6e6;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 main .cards .contenedor .noticias .boxNews:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  height: 92%;
 }
 
 main .conteinerNews {
@@ -113,12 +127,108 @@ main .conteinerNews {
   justify-content: center;
 }
 
+main .containerInv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+main .containerInv .boxInv {
+  width: 1300px;
+  height: auto;
+  border-radius: 30px;
+  padding: 30px;
+  margin: 30px 0px;
+  border: 1px solid rgba(110, 110, 110, 0.305);
+  background-color: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+}
+main .containerInv .boxInv table {
+  width: 100%;
+  margin-top: 20px;
+}
+main .containerInv .boxInv table tr .btnEdit {
+  background: linear-gradient(to bottom right, #4cd15e, rgba(33, 186, 54, 0.8666666667));
+  padding: 5px;
+  border: #e6e6e6;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #e6e6e6;
+  margin-bottom: 5px;
+}
+main .containerInv .boxInv table tr .btnEdit:hover {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+}
+main .containerInv .boxInv table tr .btnDelete {
+  background: linear-gradient(to bottom right, #d14c4c, rgba(186, 33, 33, 0.8666666667));
+  padding: 5px;
+  border: #e6e6e6;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #e6e6e6;
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
+main .containerInv .boxInv table tr .btnDelete:hover {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+}
+main .containerInv .boxInv .btnAdd {
+  background: linear-gradient(to bottom right, #4cd15e, rgba(33, 186, 54, 0.8666666667));
+  padding: 15px;
+  border: #e6e6e6;
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #e6e6e6;
+}
+main .containerInv .boxInv .btnAdd:hover {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+}
+main .containerInv .boxInv .modal .modal-dialog .modal-content .modal-body form .input-container {
+  position: relative;
+  margin: 20px;
+}
+main .containerInv .boxInv .modal .modal-dialog .modal-content .modal-body form .input-container .input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+  transition: all 0.5s;
+}
+main .containerInv .boxInv .modal .modal-dialog .modal-content .modal-body form .input-container .input-field:focus {
+  border-bottom: 2px solid #4cd15e;
+}
+main .containerInv .boxInv .modal .modal-dialog .modal-content .modal-body form .input-container .input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
 footer {
   padding: 30px;
   background: linear-gradient(to bottom right, #296331, rgba(41, 99, 49, 0.7882352941));
   height: 20vh;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 200px;
 }
 
 /*# sourceMappingURL=style.css.map */
