@@ -9,7 +9,7 @@ main {
             height: auto;
             border-radius: 30px;
             padding: 30px;
-            margin: 30px 0px;
+            margin: 40px 0px;
             border: 1px solid rgba(110, 110, 110, 0.305);
             background-color: $cardColor;
             display: flex;
@@ -20,7 +20,7 @@ main {
             transition: all 0.5s;
             table {
                 width: 100%;
-                margin-top: 20px;
+                margin-top: 50px;
                 tr {
                     .btnEdit {
                         background: linear-gradient(to bottom right, #4cd15e, #21ba36dd);
