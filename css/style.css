@@ -121,12 +121,6 @@ main .cards .contenedor .noticias .boxNews:hover {
   height: 92%;
 }
 
-main .conteinerNews {
-  width: 100vw;
-  height: 30vh;
-  justify-content: center;
-}
-
 main .containerInv {
   display: flex;
   justify-content: center;

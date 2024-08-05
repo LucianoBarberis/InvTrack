@@ -56,17 +56,6 @@ function editArticle(index) {
     price.value = article.price;
     stock.value = article.stock;
 
-    Toastify({
-        text: 'Para editar un artículo, ingrese en "Añadir articulo".',
-        duration: 3000,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "center", // `left`, `center` or `right`
-        stopOnFocus: false, // Prevents dismissing of toast on hover
-        style: {
-        background: "linear-gradient(to right, #2c2c2c, #2e2e2e)",
-        },
-    }).showToast();
     const submitButton = document.getElementById("btn-smt");
     submitButton.textContent = "Actualizar";
     submitButton.onclick = function(evento) {
@@ -130,7 +119,7 @@ function renderInventario() {
                 <td>${article.stock}</td>
                 <td>${article.formattedTotal}</td>
                 <td>
-                    <button class="btnEdit" onclick="editArticle(${index})">Editar</button>
+                    <button class="btnEdit" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="editArticle(${index})">Editar</button>
                     <button class="btnDelete" onclick="deleteArticle(${index})">Eliminar</button>
                 </td>
             </tr>
