@@ -7,6 +7,15 @@ const tbody = document.getElementById("tbody");
 
 let inventario = [];
 
+// Función para simular una operación asincrónica
+function asyncOperation(callback) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(callback());
+        }, 100); // Simulando un retraso de 0,1 ms
+    });
+}
+
 // Cargar inventario desde localStorage al iniciar la página
 document.addEventListener("DOMContentLoaded", function() {
     const storedInventory = localStorage.getItem("inventario");
@@ -16,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-formulario.addEventListener("submit", function(evento) {
+formulario.addEventListener("submit", async function(evento) {
     evento.preventDefault();
-    addArticle();
+    await asyncOperation(addArticle);
 });
 
-function addArticle() {
+async function addArticle() {
     let nameVal = nameProduct.value;
     let idVal = id.value;
     let priceVal = price.value;
@@ -44,12 +53,12 @@ function addArticle() {
     };
 
     inventario.push(article);
-    saveToLocalStorage();
+    await asyncOperation(saveToLocalStorage);
     renderInventario();
     formulario.reset();
 }
 
-function editArticle(index) {
+async function editArticle(index) {
     let article = inventario[index];
     nameProduct.value = article.name;
     id.value = article.id;
@@ -58,18 +67,17 @@ function editArticle(index) {
 
     const submitButton = document.getElementById("btn-smt");
     submitButton.textContent = "Actualizar";
-    submitButton.onclick = function(evento) {
+    submitButton.onclick = async function(evento) {
         evento.preventDefault();
-        updateArticle(index);
+        await asyncOperation(() => updateArticle(index));
     };
 }
 
-function updateArticle(index) {
+async function updateArticle(index) {
     let nameVal = nameProduct.value;
     let idVal = id.value;
     let priceVal = price.value;
     let stockVal = stock.value;
-
     let priceNumber = parseFloat(priceVal);
     let stockNumber = parseInt(stockVal, 10);
     let total = stockNumber * priceNumber;
@@ -86,7 +94,7 @@ function updateArticle(index) {
         formattedTotal: formattedTotal
     };
 
-    saveToLocalStorage();
+    await asyncOperation(saveToLocalStorage);
     renderInventario();
     formulario.reset();
 
@@ -94,14 +102,26 @@ function updateArticle(index) {
     submitButton.textContent = "Hecho";
     submitButton.onclick = function(evento) {
         evento.preventDefault();
-        addArticle();
+        asyncOperation(addArticle);
     };
 }
 
-function deleteArticle(index) {
+async function deleteArticle(index) {
     inventario.splice(index, 1);
-    saveToLocalStorage();
+    await asyncOperation(saveToLocalStorage);
     renderInventario();
+    Toastify({
+        text: "Articulo eliminado",
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+            background: "linear-gradient(to left, #e65151, #e75171)",
+        },
+        onClick: function(){}
+    }).showToast();
 }
 
 function saveToLocalStorage() {
